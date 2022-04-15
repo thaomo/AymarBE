@@ -14,8 +14,14 @@ router.route("/create").post((req, res) => {
 });
 
 router.route("/forms").get((req, res) => {
-    Form.find()
-        .then(foundForms => res.json(foundForms))
-})
+    Form.find({}, (err, result) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(result);
+        }
+    });
+    //.then(foundForms => res.json(foundForms))
+});
 
 module.exports = router;

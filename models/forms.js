@@ -5,6 +5,6 @@ const formsSchema = {
     message: String,
 }
 
-const Form = mongoose.model("Form", formsSchema);
+const Form = mongoose.model("forms", formsSchema);
 
 module.exports = Form;

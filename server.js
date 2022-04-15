@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
+const router = require('./routes/formRoute');
+require("dotenv").config();
 
 app.use(cors());
 app.use(express.json());
@@ -15,14 +17,12 @@ app.use(express.json());
 //     res.json({ greetings: 'hello' });
 // })
 
-let mongodb_pass = process.env.MONGODB_PASS;
-
 //connect to mongodb
-mongoose.connect(`mongodb+srv://thaomo:` + mongodb_pass + `@cluster0.f6ccp.mongodb.net/grantForms`)
+mongoose.connect(process.env.MONGODB_URI);
 
 //require routes
-app.use("/", require("./routes/formRoute"));
+app.use("/", router);
 
-app.listen(process.env.PORT || 3000, function () {
+app.listen(process.env.PORT || 3001, function () {
     console.log("express server is running on port" + process.env.PORT);
 })
