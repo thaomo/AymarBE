@@ -14,6 +14,6 @@ mongoose.connect(`mongodb+srv://thaomo:` + mongodb_pass + `@cluster0.f6ccp.mongo
 //require routes
 app.use("/", require("./routes/formRoute"));
 
-app.listen(3001, function () {
-    console.log("express server is running on port 3001");
+app.listen(process.env.PORT || 5000, function () {
+    console.log("express server is running on port" + process.env.PORT);
 })
