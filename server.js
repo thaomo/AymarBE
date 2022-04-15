@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const router = require('./routes/formRoute');
+const PORT = process.env.PORT || 5000
 require("dotenv").config();
 
 app.use(cors());
@@ -26,6 +27,6 @@ mongoose.connect(process.env.MONGODB_URI, {
 //require routes
 app.use("/", router);
 
-app.listen(process.env.PORT || 3001, function () {
+app.listen(PORT, () => {
     console.log("express server is running on port" + process.env.PORT);
 })
