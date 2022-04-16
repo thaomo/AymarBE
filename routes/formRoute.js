@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Form = require("../models/forms");
 
-router.route("/create").post((req, res) => {
+router.route("/create").post((req) => {
     const lName = req.body.lName;
     const fName = req.body.fName;
     const age = req.body.age;
@@ -39,7 +39,7 @@ router.route("/create").post((req, res) => {
     newForm.save();
 });
 
-router.route("/forms").get((req, res) => {
+router.route("/forms").get((res) => {
     Form.find({}, (err, result) => {
         if (err) {
             console.log(err);
