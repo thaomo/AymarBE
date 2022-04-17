@@ -14,10 +14,6 @@ app.use(express.json());
 //     res.send('hello world!');
 // })
 
-// app.get('/greeting', (req, res) => {
-//     res.json({ greetings: 'hello' });
-// })
-
 //connect to mongodb
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
