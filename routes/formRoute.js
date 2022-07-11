@@ -44,8 +44,6 @@ router.route("/create").post((req, res) => {
     });
     newForm.save();
 });
-
-console.log("before GET");
 router.get('/', (req, res) => {
     console.log("inside GET");
     Form.find({}, (err, result) => {
@@ -58,6 +56,5 @@ router.get('/', (req, res) => {
         }
     });
 });
-console.log("after GET");
 
 module.exports = router;
